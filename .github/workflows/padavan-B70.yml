@@ -18,9 +18,7 @@ env:
   TNAME: B70
   T_NAMES: "B70"
   BASE_PATH: padavan                # 基础目录
-  PUBLIC_PATH: public               # 公共目录
-  PUBLIC_SH: public.sh              # 公共命令
-  THEME_PATH: theme
+  REPLACE_PATH: replace             # 替换目录
   CLONE_URL: https://github.com/chongshengB/rt-n56u.git    # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
@@ -64,25 +62,25 @@ jobs:
           mv -f $BASE_PATH/$t_item/${t_item}.config $WORK_PATH/trunk/configs/templates/${t_item}.config
           echo "${t_item} config文件拷贝成功"
         fi
-        if [ -f $BASE_PATH/$t_item/replace/shadowsocks.sh ] ; then
-          mv -f $BASE_PATH/$t_item/replace/shadowsocks.sh $WORK_PATH/trunk/user/shadowsocks/scripts/shadowsocks.sh
+        if [ -f $BASE_PATH/$t_item/$REPLACE_PATH/shadowsocks.sh ] ; then
+          mv -f $BASE_PATH/$t_item/$REPLACE_PATH/shadowsocks.sh $WORK_PATH/trunk/user/shadowsocks/scripts/shadowsocks.sh
         echo "shadowsocks SH文件拷贝成功"
         fi
-        if [ -f $BASE_PATH/$t_item/replace/defaults.h ] ; then
-          mv -f $BASE_PATH/$t_item/replace/defaults.h $WORK_PATH/trunk/user/shared/defaults.h
+        if [ -f $BASE_PATH/$t_item/$REPLACE_PATH/defaults.h ] ; then
+          mv -f $BASE_PATH/$t_item/$REPLACE_PATH/defaults.h $WORK_PATH/trunk/user/shared/defaults.h
           echo "${t_item} 配置文件拷贝成功"
         fi
-        if [ ! -d $BASE_PATH/$t_item/$THEME_PATH ] ; then
+        if [ ! -d $BASE_PATH/$t_item/theme ] ; then
           echo "${BASE_PATH}/${t_item}/${THEME_PATH} 自定义主题文件夹未找到"
-        elif [! -d $WORK_PATH/$THEME_PATH ] ; then
-              cp -r $BASE_PATH/$t_item/$THEME_PATH  $WORK_PATH/
+        elif [! -d $WORK_PATH/theme ] ; then
+              cp -r $BASE_PATH/$t_item/theme  $WORK_PATH/
               echo "${THEME_PATH} 自定义主题文件夹拷贝成功"  
            else
-              rm -rf $WORK_PATH/$THEME_PATH
-              cp -r $BASE_PATH/$t_item/$THEME_PATH  $WORK_PATH/
+              rm -rf $WORK_PATH/theme
+              cp -r $BASE_PATH/$t_item/theme  $WORK_PATH/
               sudo rm -rf $WORK_PATH/trunk/user/www/n56u_ribbon_fixed/bootstrap
               sudo rm -rf $WORK_PATH/trunk/user/www/n56u_ribbon_fixed/images
-              cp -rf $WORK_PATH/$THEME_PATH/. $WORK_PATH/trunk/user/www/n56u_ribbon_fixed
+              cp -rf $WORK_PATH/theme/. $WORK_PATH/trunk/user/www/n56u_ribbon_fixed
               echo "${THEME_PATH} 复制主题文件结束"  
         fi
         done
