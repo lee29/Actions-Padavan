@@ -22,8 +22,8 @@ env:
   CLONE_URL: https://github.com/chongshengB/rt-n56u.git    # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
-  APPLY_RAINBOWTHEME: true          #是否启用主题
-  RECOVERY_SSPBINREMOTEDOWNLOAD: true   #是否替换ssp版本
+  APPLY_RAINBOWTHEME: false          #是否启用主题
+  RECOVERY_SSPBINREMOTEDOWNLOAD: false   #是否替换ssp版本
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: true
