@@ -101,10 +101,10 @@ jobs:
     - name: Recovery SSP bin files download from remote
       if: env.RECOVERY_SSPBINREMOTEDOWNLOAD == 'true'
       run: |
-        cp -f $BASE_PATH/$t_item/replace/ssp/shadowsocks.sh $WORK_PATH/trunk/user/shadowsocks/scripts
-        cp -f $BASE_PATH/$t_item/replace/ssp/defaults.c $WORK_PATH/trunk/user/shared
-        cp -f $BASE_PATH/$t_item/replace/ssp/variables.c $WORK_PATH//trunk/user/httpd
-        cp -f $BASE_PATH/$t_item/replace/ssp/Shadowsocks.asp $WORK_PATH/trunk/user/www/n56u_ribbon_fixed
+        cp -f $BASE_PATH/B70/replace/ssp/shadowsocks.sh $WORK_PATH/trunk/user/shadowsocks/scripts
+        cp -f $BASE_PATH/B70/replace/ssp/defaults.c $WORK_PATH/trunk/user/shared
+        cp -f $BASE_PATH/B70/replace/ssp/variables.c $WORK_PATH//trunk/user/httpd
+        cp -f $BASE_PATH/B70/replace/ssp/Shadowsocks.asp $WORK_PATH/trunk/user/www/n56u_ribbon_fixed
         cd $WORK_PATH/trunk/user/shared
         sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/trojan#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Actions-Padavan/${BASE_PATH}/${t_item}/replace/ssp/trojan#g" ./defaults.c
         sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/v2ray#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Actions-Padavan/${BASE_PATH}/${t_item}/replace/ssp/v2ray#g" ./defaults.c
@@ -113,7 +113,7 @@ jobs:
         
     - name: Frp_SH                #替换frp脚本
       run: |        
-        cp -f $BASE_PATH/$TNAME/replace/frp_script.sh $WORK_PATH/trunk/user/frp
+        cp -f $BASE_PATH/B70/replace/frp_script.sh $WORK_PATH/trunk/user/frp
         cd $WORK_PATH/trunk/user/frp
         echo "更改frpc版本"
         sed -i "s/0.29.0/0.34.1/g" ./Makefile
@@ -122,7 +122,7 @@ jobs:
         
     - name: B70_SH                #自定义diy配置
       run: |        
-        cp -f $BASE_PATH/$t_item/B70.sh  $WORK_PATH/trunk
+        cp -f $BASE_PATH/B70/B70.sh  $WORK_PATH/trunk
         cd $WORK_PATH/trunk
         sudo chmod +x ./B70.sh
         echo "执行B70_SH"
