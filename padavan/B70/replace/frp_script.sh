@@ -12,7 +12,7 @@ cat > "/tmp/frp/myfrpc.ini" <<-\EOF
 [common]
 server_addr = lee29.ml
 server_port = 5443
-token = a10086
+token = 
 
 #log_file = /dev/null
 #log_level = info
