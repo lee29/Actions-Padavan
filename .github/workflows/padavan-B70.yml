@@ -98,7 +98,7 @@ jobs:
       run: |
         cp -f $BASE_PATH/$TNAME/replace/ssp/shadowsocks.sh $WORK_PATH/trunk/user/shadowsocks/scripts
         cp -f $BASE_PATH/$TNAME/replace/ssp/defaults.c $WORK_PATH/trunk/user/shared
-        cp -f $BASE_PATH/$TNAME/replace/ssp/variables.c $WORK_PATH//trunk/user/httpd
+        cp -f $BASE_PATH/$TNAME/replace/ssp/variables.c $WORK_PATH/trunk/user/httpd
         cp -f $BASE_PATH/$TNAME/replace/ssp/Shadowsocks.asp $WORK_PATH/trunk/user/www/n56u_ribbon_fixed
         cp -f $BASE_PATH/$TNAME/replace/ssp/Shadowsocks.asp $WORK_PATH/trunk/user/www/n56u_rainbow
         cd $WORK_PATH/trunk/user/shared
